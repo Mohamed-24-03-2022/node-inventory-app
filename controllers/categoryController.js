@@ -1,4 +1,4 @@
-const { getFoodByCategory, getCategories, insertCategory, destroyCategory } = require('../db/queries');
+const { getFoodByCategory, getCategories, insertCategory, destroyCategory } = require('../models/queries');
 const { body, validationResult } = require('express-validator');
 const notifier = require('node-notifier');
 

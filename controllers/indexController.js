@@ -1,4 +1,4 @@
-const { getFood, getCategories } = require('../db/queries');
+const { getFood, getCategories } = require('../models/queries');
 
 
 module.exports = {

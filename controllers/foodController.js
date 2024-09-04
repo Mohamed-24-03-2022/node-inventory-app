@@ -1,7 +1,7 @@
 require('dotenv').config();
 
 
-const { getFoodById, getCategories, insertFood, updateFood, destroyFood } = require('../db/queries');
+const { getFoodById, getCategories, insertFood, updateFood, destroyFood } = require('../models/queries');
 const { body, params, validationResult } = require('express-validator');
 const notifier = require('node-notifier');
 
