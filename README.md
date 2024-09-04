@@ -52,19 +52,13 @@ Before running the project, ensure you have the following installed:
    DBPORT=5432
    ```
 
-4. **Run database migrations**:
-
-   ```bash
-   node scripts/db-setup.js
-   ```
-
-5. **Start the application**:
+4. **Start the application**:
 
    ```bash
    npm start
    ```
 
-6. **Access the application**:
+5. **Access the application**:
 
    Open your browser and go to `http://localhost:3000`.
 

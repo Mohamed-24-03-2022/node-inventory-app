@@ -12,7 +12,7 @@ module.exports = new Pool({
   database: process.env.DB,
   password: process.env.PW,
   port: process.env.DBPORT,
-  // ssl: {
-  //   ca: fs.readFileSync(path.join(__dirname, '/eu-north-1-bundle.pem'))
-  // }
+  ssl: {
+    ca: fs.readFileSync(path.join(__dirname, '/eu-north-1-bundle.pem'))
+  }
 })
