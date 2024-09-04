@@ -1,0 +1,27 @@
+<%- include('./layout/header.ejs') %>
+
+<main>
+  <%- include('./sidebar.ejs', {categories}) %>
+
+  <section class="content">
+    <div class="item-cards">
+      <% for (let i = 0; i < food.length; i++) { %>
+      <div
+        class="card"
+        data-food-id="<%= food[i].id %>"
+        data-category-id="<%= food[i].category_id %>"
+      >
+        <img src="<%= food[i].img %>" alt="<%= food[i].name %>" />
+        <div class="card-body">
+          <h3><%= food[i].name %></h3>
+          <p class="price">$<%= food[i].price.toFixed(2) %></p>
+          <p class="stock"><%= food[i].stock %> in stock</p>
+        </div>
+        <a class="btn-primary" href="/food/<%=food[i].id%>"> View Details</a>
+      </div>
+      <% } %>
+    </div>
+  </section>
+</main>
+
+<%- include('./layout/footer.ejs') %>

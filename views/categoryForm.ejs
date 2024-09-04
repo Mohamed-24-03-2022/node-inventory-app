@@ -1,0 +1,18 @@
+<%- include('./layout/header.ejs') %>
+
+<main>
+  <%- include('./sidebar.ejs', {categories}) %>
+
+  <section class="content-add">
+    <h2>Add a New Category</h2>
+    <form action="/category/add" method="POST" class="category-form">
+      <div class="form-group">
+        <label for="name">Category Name:</label>
+        <input type="text" id="name" name="name" required />
+      </div>
+      <button type="submit" class="btn-primary">Add Category</button>
+    </form>
+  </section>
+</main>
+
+<%- include('./layout/footer.ejs') %>

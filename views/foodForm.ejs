@@ -1,0 +1,55 @@
+<%- include('./layout/header.ejs') %>
+
+  <main>
+    <%- include('./sidebar.ejs', { categories }) %>
+
+      <section class="content-add">
+        <%
+          const food =locals.food
+        %>
+        <h2>
+          <%= food ? 'Update Food' : 'Add New Food' %>
+        </h2>
+
+        <form action="<%= food ? `/food/update/${food.id}` : '/food/add' %>" method="POST"
+          class="food-form">
+          <div class="form-group">
+            <label for="name">Food Name:</label>
+            <input type="text" id="name" name="name" value="<%= food ? food.name : '' %>"
+              required />
+          </div>
+
+          <div class="form-group">
+            <label for="category">Category:</label>
+            <select id="category" name="category_id" required>
+              <% categories.forEach(category=> { %>
+                <option <%=food && food.category_id===category.id ? 'selected' : '' %>
+                  value="<%= category.id %>"> <%= category.name %>
+                </option>
+                <% }); %>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="price">Price ($):</label>
+            <input type="number" id="price" name="price" value="<%= food ? food.price : '' %>"
+              step="0.01" min="0" required />
+          </div>
+
+          <div class="form-group">
+            <label for="stock">Stock:</label>
+            <input type="number" id="stock" name="stock" value="<%= food ? food.stock : '' %>"
+              min="0" required />
+          </div>
+
+          <div class="form-group">
+            <label for="img">Image URL:</label>
+            <input type="text" id="img" name="img" value="<%= food ? food.img : '' %>" />
+          </div>
+
+          <button type="submit" class="btn-primary"><%= food ? 'Update Food' : 'Add Food Item' %> </button>
+        </form>
+      </section>
+  </main>
+
+  <%- include('./layout/footer.ejs') %>

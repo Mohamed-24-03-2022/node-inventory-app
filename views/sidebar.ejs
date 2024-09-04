@@ -1,0 +1,20 @@
+<aside class="sidebar">
+  <h2>Categories</h2>
+  <ul>
+    <li><a href="/">All Categories</a></li>
+    <% for (let i = 0; i < categories.length; i++) { %>
+    <li>
+      <a href="/category/<%=categories[i].id%>" data-category-id="<%=categories[i].id%>">
+        <%=categories[i].name%>
+      </a>
+
+      <form method="POST" action="/category/delete/<%=categories[i].id%>" class="delete-form">
+        <button>X</button>
+      </form>
+    </li>
+    <% } %>
+    <hr />
+    <li><a href="/category/add">Add category</a></li>
+    <li><a href="/food/add">Add food</a></li>
+  </ul>
+</aside>

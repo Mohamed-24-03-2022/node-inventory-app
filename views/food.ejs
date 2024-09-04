@@ -1,0 +1,37 @@
+<%- include('./layout/header.ejs') %>
+
+<main>
+  <%- include('./sidebar.ejs', { categories }) %>
+
+  <section class="content">
+    <% if (locals.food) { %>
+    <div class="food-details">
+      <h2>Food Details</h2>
+      <div class="food-detail-card">
+        <img src="<%= food.img %>" alt="<%= food.name %>" />
+        <div class="food-detail-body">
+          <h3><%= food.name %></h3>
+          <p class="price">$<%= food.price %></p>
+          <p class="stock"><%= food.stock %> in stock</p>
+
+          <% let categoryName = ''; for (let i = 0; i < categories.length; i++) { if
+          (categories[i].id === food.category_id) { categoryName = categories[i].name; break; }}%>
+
+          <p class="category"><strong>Category:</strong> <%= categoryName %></p>
+        </div>
+      </div>
+
+      <div class="action-buttons">
+        <a href="/food/update/<%= food.id %>" class="btn-primary">Update</a>
+        <form action="/food/delete/<%= food.id %>" method="POST" style="display: inline">
+          <button type="submit" class="btn-danger">Delete</button>
+        </form>
+      </div>
+    </div>
+    <% } else { %>
+    <p>Food item not found.</p>
+    <% } %>
+  </section>
+</main>
+
+<%- include('./layout/footer.ejs') %>
